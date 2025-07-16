@@ -20,11 +20,13 @@ export default function OrgTree() {
   const renderSquareNode = ({ nodeDatum, toggleNode }) => (
     <g onClick={toggleNode}>
       <rect
+
+      // className="bg-blue-200"
         width={140}
-        height={120}
+        height={150}
         x={-70}
         y={-80}
-        fill="#"
+        // fill="cyan"
         stroke="#111827"
         strokeWidth={2}
         rx={12}
@@ -42,6 +44,7 @@ export default function OrgTree() {
       )}
 
       <text
+      
         x="0"
         y="15 "
         textAnchor="middle"
@@ -59,7 +62,8 @@ export default function OrgTree() {
           y="30"
           textAnchor="middle"
           fontSize="12"
-          // fill="#e0e7ff"
+          fill="#e0e7ff"
+          // r={40}
         >
           {nodeDatum.attributes.role}
         </text>
