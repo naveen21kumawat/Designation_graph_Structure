@@ -1,7 +1,38 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Tree from "react-d3-tree";
-import { flatEmployees } from "./employees";
-import { buildTree } from "../utils/BuildTree";
+const { VITE_API_URL } = import.meta.env;
+
+// Recursively map user object to react-d3-tree format
+function mapToTreeNode(user) {
+  const mapped = {
+    name: user.name,
+    attributes: {
+      role: user.designation,
+      image: user.image,
+    },
+    children: Array.isArray(user.children) && user.children.length > 0
+      ? user.children.map(mapToTreeNode)
+      : [],
+  };
+  if (!mapped.children.length) {
+    console.log("Leaf node mapped:", mapped);
+  }
+  return mapped;
+}
+
+function normalizeChildrenRecursive(user, allUsers) {
+  const normalizedChildren = Array.isArray(user.children)
+    ? user.children.map(child =>
+        typeof child === "string"
+          ? allUsers.find(u => u._id === child)
+          : child
+      ).filter(Boolean)
+    : [];
+  return {
+    ...user,
+    children: normalizedChildren.map(child => normalizeChildrenRecursive(child, allUsers)),
+  };
+}
 
 export default function OrgTree() {
   const treeRef = useRef();
@@ -9,12 +40,26 @@ export default function OrgTree() {
   const [treeData, setTreeData] = useState(null);
 
   useEffect(() => {
-    const rootNode = buildTree(flatEmployees);
-    setTreeData(rootNode);
-
-    const dimensions = treeRef.current.getBoundingClientRect();
-    setTranslate({ x: dimensions.width / 2, y: 100 });
+    fetch(`${VITE_API_URL}/user`)
+      .then((response) => response.json())
+      .then((data) => {
+        const normalizedUsers = data.map(user => normalizeChildrenRecursive(user, data));
+        const rootUser = normalizedUsers.find(user => user.parent === null);
+        const treeRoot = mapToTreeNode(rootUser);
+        console.log("Mapped tree root:", treeRoot);
+        setTreeData(treeRoot);
+        const dimensions = treeRef.current.getBoundingClientRect();
+        setTranslate({ x: dimensions.width / 2, y: 100 });
+      })
   }, []);
+
+  // useEffect(() => {
+  //   const rootNode = buildTree(flatEmployees);
+  //   setTreeData(rootNode);
+
+  //   const dimensions = treeRef.current.getBoundingClientRect();
+  //   setTranslate({ x: dimensions.width / 2, y: 100 });
+  // }, []);
 
   // Custom Node Renderer
   const renderSquareNode = ({ nodeDatum, toggleNode }) => {
