@@ -60,13 +60,14 @@
     name: "Larry Page",
     role: "Co-Founder, Google",
     image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Larry_Page_in_the_European_Parliament%2C_17.06.2009_%28cropped%29.jpg",
-    parentId: 2
+    parentId: 10
   },
   {
     id: 10,
     name: "Marissa Mayer",
     role: "Former CEO, Yahoo!",
     image: "https://upload.wikimedia.org/wikipedia/commons/7/79/Marissa_Mayer_2011.jpg",
-    parentId: 2
+    parentId: 3
   }
+  
 ]
