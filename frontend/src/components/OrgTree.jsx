@@ -77,24 +77,24 @@ export default function OrgTree() {
           <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#000" floodOpacity="0.15" />
         </filter>
         <rect
-          width={160}
-          height={140}
+          width={170}
+          height={160}
           x={-80}
           y={-90}
           fill={bgColor}
           stroke={borderColor}
-          strokeWidth={2}
+          strokeWidth={1}
           rx={18}
           filter="url(#shadow)"
         />
         {/* Render image in a perfect circle with border */}
         {nodeDatum.attributes?.image && (
           <g>
-            <circle cx="0" cy="-60" r="32" fill="#fff" stroke="#cbd5e1" strokeWidth="2" />
+            <circle cx="0" cy="-53" r="30" fill="#fff" stroke="#cbd5e1" strokeWidth="2" />
             <image
               href={nodeDatum.attributes.image}
-              x={-32}
-              y={-92}
+              x={-28}
+              y={-85}
               width={64}
               height={64}
               style={{
@@ -104,41 +104,41 @@ export default function OrgTree() {
           </g>
         )}
         <text
-          x="0"
+          x="5"
           y="0"
           textAnchor="middle"
           fontSize="16"
           fontWeight="normal"
           fill={nameColor}
           style={{
-            ...(isParent ? { textShadow: '0 1px 4px #0006' } : {}),
+            // ...(isParent ? { textShadow: '0 1px 4px #0006' } : {}),
             fontFamily: 'Inter, Segoe UI, Arial, sans-serif'
           }}
         >
           {nodeDatum.name}
         </text>
         {nodeDatum.attributes?.role && (
-          <rect x={-50} y={20} width={100} height={28} rx={8} fill={roleBg} opacity={roleOpacity} />
+          <rect x={-70} y={30} width={150} height={28} rx={8} fill={roleBg} opacity={roleOpacity} />
         )}
         {nodeDatum.attributes?.role && (
           <text
-            x="0"
-            y="38"
+            x="5"
+            y="48"
             textAnchor="middle"
             fontSize="13"
             fontWeight="normal"
             fill={roleText}
             style={{
-              ...(isParent ? { textShadow: '0 1px 4px #fff8' } : {}),
+              // ...(isParent ? { textShadow: '0 1px 4px #fff8' } : {}),
               fontFamily: 'Inter, Segoe UI, Arial, sans-serif'
             }}
           >
             {nodeDatum.attributes.role}
           </text>
         )}
-        <rect
-          width={160}
-          height={140}
+        {/* <rect
+          width={170}
+          height={150}
           x={-80}
           y={-90}
           fill="transparent"
@@ -146,7 +146,7 @@ export default function OrgTree() {
           style={{ pointerEvents: "all" }}
         >
           <title>Click to expand/collapse</title>
-        </rect>
+        </rect> */}
       </g>
     );
   };
@@ -158,7 +158,14 @@ export default function OrgTree() {
         width: "100vw",
         height: "100vh",
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #f3f4f6 0%, #e0e7ff 100%)",
+        // background: "linear-gradient(135deg, #f3f4f6 0%, #e0e7ff 100%)",
+        // background: "linear-gradient(135deg, #fbc2eb 10%, #a18cd1 50%, #c2e9fb 100%)",
+        background: "linear-gradient(135deg, #d0e8ff 0%, #76b4ff 50%, #3a8dff 100%)",
+          // background: "linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 50%, #d4d4d4 100%)",
+
+        // background: "linear-gradient(135deg, #f4e2d8 0%, #d6d4f1 50%, #c2f0f7 70%)",
+
+        // background: "linear-gradient(135deg, #f3f4f6 0%, #e0e7ff 100%)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -174,7 +181,7 @@ export default function OrgTree() {
         letterSpacing: "-1px",
         textShadow: "0 2px 8px #fff8"
       }}>
-        Organization Structure
+       8Bit Organization
       </h1>
       <div style={{ width: "100%", flex: 1 }}>
         {treeData && (
