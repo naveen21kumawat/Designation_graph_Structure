@@ -107,11 +107,11 @@ export default function OrgTree() {
           x="5"
           y="0"
           textAnchor="middle"
-          fontSize="16"
-          fontWeight="normal"
+          fontSize="18"
+          fontWeight="0"
           fill={nameColor}
           style={{
-            // ...(isParent ? { textShadow: '0 1px 4px #0006' } : {}),
+            ...(isParent ? { letterSpacing:'1' } : {}),
             fontFamily: 'Inter, Segoe UI, Arial, sans-serif'
           }}
         >
@@ -124,11 +124,14 @@ export default function OrgTree() {
           <text
             x="5"
             y="48"
+            // letterSpacing='1'
             textAnchor="middle"
-            fontSize="13"
+            fontSize="12"
             fontWeight="normal"
             fill={roleText}
             style={{
+            ...(isParent ? { letterSpacing:'2' } : {}),
+
               // ...(isParent ? { textShadow: '0 1px 4px #fff8' } : {}),
               fontFamily: 'Inter, Segoe UI, Arial, sans-serif'
             }}
@@ -136,9 +139,9 @@ export default function OrgTree() {
             {nodeDatum.attributes.role}
           </text>
         )}
-        {/* <rect
+        <rect
           width={170}
-          height={150}
+          height={160}
           x={-80}
           y={-90}
           fill="transparent"
@@ -146,7 +149,7 @@ export default function OrgTree() {
           style={{ pointerEvents: "all" }}
         >
           <title>Click to expand/collapse</title>
-        </rect> */}
+        </rect>
       </g>
     );
   };
@@ -159,8 +162,8 @@ export default function OrgTree() {
         height: "100vh",
         minHeight: "100vh",
         // background: "linear-gradient(135deg, #f3f4f6 0%, #e0e7ff 100%)",
-        // background: "linear-gradient(135deg, #fbc2eb 10%, #a18cd1 50%, #c2e9fb 100%)",
-        background: "linear-gradient(135deg, #d0e8ff 0%, #76b4ff 50%, #3a8dff 100%)",
+        background: "linear-gradient(135deg, #fbc2eb 10%, #a18cd1 50%, #c2e9fb 100%)",
+        // background: "linear-gradient(135deg, #d0e8ff 0%, #76b4ff 50%, #3a8dff 100%)",
           // background: "linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 50%, #d4d4d4 100%)",
 
         // background: "linear-gradient(135deg, #f4e2d8 0%, #d6d4f1 50%, #c2f0f7 70%)",
@@ -175,7 +178,7 @@ export default function OrgTree() {
     >
       <h1 style={{
         fontSize: "2.5rem",
-        fontWeight: 700,
+        // fontWeight: 700,
         color: "#3730a3",
         margin: "32px 0 12px 0",
         letterSpacing: "-1px",
