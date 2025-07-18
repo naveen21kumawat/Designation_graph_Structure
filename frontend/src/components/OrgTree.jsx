@@ -77,8 +77,8 @@ export default function OrgTree() {
           <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#000" floodOpacity="0.15" />
         </filter>
         <rect
-          width={170}
-          height={160}
+          width={180}
+          height={170}
           x={-80}
           y={-90}
           fill={bgColor}
@@ -90,7 +90,7 @@ export default function OrgTree() {
         {/* Render image in a perfect circle with border */}
         {nodeDatum.attributes?.image && (
           <g>
-            <circle cx="0" cy="-53" r="30" fill="#fff" stroke="#cbd5e1" strokeWidth="2" />
+            <circle cx="3" cy="-53" r="40" fill="#fff" stroke="#cbd5e1" strokeWidth="2" />
             <image
               href={nodeDatum.attributes.image}
               x={-28}
@@ -104,8 +104,8 @@ export default function OrgTree() {
           </g>
         )}
         <text
-          x="5"
-          y="0"
+          x="7"
+          y="11"
           textAnchor="middle"
           fontSize="18"
           fontWeight="0"
@@ -118,12 +118,12 @@ export default function OrgTree() {
           {nodeDatum.name}
         </text>
         {nodeDatum.attributes?.role && (
-          <rect x={-70} y={30} width={150} height={28} rx={8} fill={roleBg} opacity={roleOpacity} />
+          <rect x={-70} y={37} width={160} height={28} rx={8} fill={roleBg} opacity={roleOpacity} />
         )}
         {nodeDatum.attributes?.role && (
           <text
-            x="5"
-            y="48"
+            x="7"
+            y="55"
             // letterSpacing='1'
             textAnchor="middle"
             fontSize="12"
@@ -139,7 +139,7 @@ export default function OrgTree() {
             {nodeDatum.attributes.role}
           </text>
         )}
-        <rect
+        {/* <rect
           width={170}
           height={160}
           x={-80}
@@ -149,7 +149,7 @@ export default function OrgTree() {
           style={{ pointerEvents: "all" }}
         >
           <title>Click to expand/collapse</title>
-        </rect>
+        </rect> */}
       </g>
     );
   };
