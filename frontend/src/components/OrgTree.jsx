@@ -44,7 +44,9 @@ export default function OrgTree() {
       .then((response) => response.json())
       .then((data) => {
         const normalizedUsers = data.map(user => normalizeChildrenRecursive(user, data));
+        console.log("norm",normalizedUsers)
         const rootUser = normalizedUsers.find(user => user.parent === null);
+        console.log("Root User",rootUser)
         const treeRoot = mapToTreeNode(rootUser);
         console.log("Mapped tree root:", treeRoot);
         setTreeData(treeRoot);
@@ -90,10 +92,10 @@ export default function OrgTree() {
         {/* Render image in a perfect circle with border */}
         {nodeDatum.attributes?.image && (
           <g>
-            <circle cx="3" cy="-53" r="40" fill="#fff" stroke="#cbd5e1" strokeWidth="2" />
+            <circle cx="3" cy="-53" r="40" fill="#fff" stroke="#cbd5e1" strokeWidth="6" />
             <image
               href={nodeDatum.attributes.image}
-              x={-28}
+              x={-29}
               y={-85}
               width={64}
               height={64}
@@ -161,8 +163,8 @@ export default function OrgTree() {
         width: "100vw",
         height: "100vh",
         minHeight: "100vh",
-        // background: "linear-gradient(135deg, #f3f4f6 0%, #e0e7ff 100%)",
-        background: "linear-gradient(135deg, #fbc2eb 10%, #a18cd1 50%, #c2e9fb 100%)",
+        background: "linear-gradient(135deg, #f3f4f6 0%, #e0e7ff 100%)",
+        // background: "linear-gradient(135deg, #fbc2eb 10%, #a18cd1 50%, #c2e9fb 100%)",
         // background: "linear-gradient(135deg, #d0e8ff 0%, #76b4ff 50%, #3a8dff 100%)",
           // background: "linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 50%, #d4d4d4 100%)",
 
