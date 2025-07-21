@@ -45,7 +45,9 @@ export default function OrgTree() {
       .then((data) => {
         const normalizedUsers = data.map(user => normalizeChildrenRecursive(user, data));
         console.log("norm",normalizedUsers)
+        console.log("norm",normalizedUsers)
         const rootUser = normalizedUsers.find(user => user.parent === null);
+        console.log("Root User",rootUser)
         console.log("Root User",rootUser)
         const treeRoot = mapToTreeNode(rootUser);
         console.log("Mapped tree root:", treeRoot);
