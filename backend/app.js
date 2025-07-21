@@ -2,12 +2,14 @@ import express from 'express';
 import dotenv from 'dotenv';
 import userRoute from './routes/userRoute.js';
 import dbconnect from './config/db.js';
+import cors from 'cors';
 dotenv.config();
 const app = express();
 dbconnect();
 const PORT = process.env.PORT
 
 app.use(express.json());
+app.use(cors())
 
 app.get('/', (req, res) => {
     res.send('Express server is running!');
