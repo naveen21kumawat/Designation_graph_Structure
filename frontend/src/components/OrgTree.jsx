@@ -4,6 +4,7 @@ const { VITE_API_URL } = import.meta.env;
 
 // Recursively map user object to react-d3-tree format
 function mapToTreeNode(user) {
+  let l = 0
   const mapped = {
     name: user.name,
     attributes: {
@@ -11,7 +12,7 @@ function mapToTreeNode(user) {
       image: user.image,
     },
     children: Array.isArray(user.children) && user.children.length > 0
-      ? user.children.map(mapToTreeNode)
+      ? user.children.map(mapToTreeNode )
       : [],
   };
   if (!mapped.children.length) {
