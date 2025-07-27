@@ -20,16 +20,11 @@ app.get('/api', (req, res) => {
 });
 app.get('/users', (req, res) => {
     res.json([
-
-         { id: "1", name: "Alice", role: "CEO", parentId: null },
-  { id: "2", name: "Bob", role: "Manager", parentId: "1" },
-  { id: "3", name: "Charlie", role: "Manager", parentId: "1" },
-  { id: "4", name: "David", role: "Developer", parentId: "2" },
-  { id: "5", name: "Sara", role: "QA Engineer", parentId: "2" },
-  { id: "6", name: "Eva", role: "Developer", parentId: "3" },
-  { id: "7", name: "John", role: "Developer", parentId: "2" },
-    ]
-    )
+  { "id": "A1", "name": "Alice", "role": "CEO", "level": 1, "image": "https://example.com/img1.jpg" },
+  { "id": "B1", "name": "Bob", "role": "CTO", "level": 2, "image": "https://example.com/img2.jpg" },
+  { "id": "C1", "name": "Charlie", "role": "Engineer", "level": 3, "image": "https://example.com/img3.jpg" }
+]
+)
 });
 app.use("/api/user",userRoute)
 

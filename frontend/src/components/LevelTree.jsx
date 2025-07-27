@@ -4,7 +4,7 @@ import Xarrow from "react-xarrows";
 const NodeBox = ({ node }) => (
   <div
     id={node.id}
-    className="min-w-[120px] max-w-[150px] bg-blue-500 text-white rounded flex flex-col items-center justify-center p-2 m-2 shadow"
+    className="min-w-[120px] max-w-[150px] bg-purple-100 rounded-2xl  text-black rounded flex flex-col items-center justify-center p-2 m-2 shadow-lg hover:bg-blue-200 transition-bg duration-300"
   >
     <img
       src={node.image}
@@ -42,6 +42,11 @@ const LevelTree = () => {
   const [level3, setLevel3] = useState([
     { id: "C1", name: "Eve", role: "Engineer", image: "https://via.placeholder.com/50" },
     { id: "C2", name: "Frank", role: "Analyst", image: "https://via.placeholder.com/50" },
+    { id: "C2", name: "Frank", role: "Analyst", image: "https://via.placeholder.com/50" },
+    { id: "C2", name: "Frank", role: "Analyst", image: "https://via.placeholder.com/50" },
+    { id: "C2", name: "Frank", role: "Analyst", image: "https://via.placeholder.com/50" },
+    { id: "C2", name: "Frank", role: "Analyst", image: "https://via.placeholder.com/50" },
+    { id: "C2", name: "Frank", role: "Analyst", image: "https://via.placeholder.com/50" },
   ]);
 
   const addNode = (level) => {
@@ -61,7 +66,7 @@ const LevelTree = () => {
 
   return (
     <div className="p-6 bg-white min-h-screen">
-      <h1 className="text-3xl font-bold text-center mb-8">3-Level Node Tree</h1>
+      <h1 className="text-3xl  font-bold text-center mb-8">8Bit Orgnization</h1>
 
       <div className="flex justify-center gap-4 mb-6">
         <button onClick={() => addNode(1)} className="bg-blue-600 text-white px-4 py-2 rounded">
