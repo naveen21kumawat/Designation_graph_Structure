@@ -1,13 +1,13 @@
-import LevelTree from "./components/levelTree";
-import OrgTree from "./components/OrgTree";
+import React from "react";
+import "./index.css"; // Optional, if using Tailwind or dark mode utilities
+import LevelTree from "./components/LevelTree";
 
-function App() {
+const App = () => {
   return (
     <div>
-      {/* <OrgTree /> */}
-      <LevelTree/> 
+      <LevelTree />
     </div>
   );
-}
+};
 
 export default App;
