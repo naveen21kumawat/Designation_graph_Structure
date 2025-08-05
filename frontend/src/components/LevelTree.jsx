@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Xarrow from "react-xarrows";
 
-// Node Component
+// Node  Component
 const NodeBox = ({ node, onDragStart, onClick }) => (
   <div
     id={node.id}
